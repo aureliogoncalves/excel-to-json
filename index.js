@@ -11,16 +11,15 @@ const excelToJson = require('convert-excel-to-json');
 // let fileOutputName = `${n}.json`
 // csvToJson.fieldDelimiter('').generateJsonFileFromCsv(fileInputName,fileOutputName);
 
-
+const fileName = "Numero de alunos"
 
 const result = excelToJson({
-  sourceFile: 'Qrcodes_.xlsx',
+  sourceFile: `/excel/${fileName}.xlsx`,
   columnToKey: {
     A: 'qrcode',
   }
 });
 
-fs.appendFile(`./Qrcodes_.txt`, `${JSON.stringify(result, null, 2)} `, "UTF-8", function (err) {
+fs.appendFile(`/json/${fileName}.txt`, `${JSON.stringify(result, null, 2)} `, "UTF-8", function (err) {
   if (err) throw err;
-
 })
